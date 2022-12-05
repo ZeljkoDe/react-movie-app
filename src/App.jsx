@@ -5,6 +5,7 @@ import './App.css';
 
 export default function App() {
 	const [movies, setMovies] = useState([]);
+	const [searchKey, setSearchKey] = useState('');
 	const API_URL = 'https://api.themoviedb.org/3';
 	const fetchMovies = async () => {
 		const {
@@ -20,8 +21,28 @@ export default function App() {
 		fetchMovies();
 	}, []);
 
+	const searchMovies = (e) => {
+		e.preventDefault();
+		console.log(searchKey);
+	};
+
 	const renderMovies = () =>
 		movies.map((movie) => <MovieCard key={movie.id} movie={movie} />);
 
-	return <div className='container'>{renderMovies()}</div>;
+	return (
+		<>
+			<header>
+				<h1>Movie Trailer App</h1>
+				<form onSubmit={searchMovies}>
+					<input
+						type='text'
+						onChange={(e) => setSearchKey(e.target.value)}
+					/>
+					<button type='submit'>Search</button>
+				</form>
+			</header>
+
+			<div className='container'>{renderMovies()}</div>
+		</>
+	);
 }
