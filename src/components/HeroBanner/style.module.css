@@ -1,0 +1,33 @@
+.hero {
+	height: 500px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	padding: 50px;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hero h1 {
+	font-size: 72px;
+	margin: 0;
+}
+
+.hero button {
+	max-height: 42px;
+	white-space: nowrap;
+	border: 1px solid black;
+	background-color: transparent;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.hero button:hover {
+	color: white;
+	background-color: black;
+}

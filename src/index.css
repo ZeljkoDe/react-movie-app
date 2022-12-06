@@ -6,7 +6,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: #090a0e;
-  color: white;
+	color: white;
 }
 
 code {
@@ -15,9 +15,12 @@ code {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#root {
+	max-width: 1200px;
+	margin: 0 auto;
 }

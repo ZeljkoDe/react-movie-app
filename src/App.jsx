@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import MovieCard from './components/MovieCard';
+import { MovieCard, SearchBar, HeroBanner } from './components';
 import axios from 'axios';
 import './App.css';
-import SearchBar from './components/SearchBar';
 
 export default function App() {
 	const [movies, setMovies] = useState([]);
 	const [searchKey, setSearchKey] = useState('');
+	const [selectedMovie, setSelectedMovie] = useState([]);
+
 	const API_URL = 'https://api.themoviedb.org/3';
 	const fetchMovies = async (searchKey) => {
 		const type = searchKey ? '/search' : '/discover';
@@ -19,6 +20,7 @@ export default function App() {
 			},
 		});
 
+		setSelectedMovie(results[0]);
 		setMovies(results);
 	};
 
@@ -40,11 +42,10 @@ export default function App() {
 		<>
 			<header>
 				<h1>Movie Trailer App</h1>
-				<SearchBar
-					onChange={onInputChange}
-					onSearch={searchMovies}
-				/>
+				<SearchBar onChange={onInputChange} onSearch={searchMovies} />
 			</header>
+
+			<HeroBanner selectedMovie={selectedMovie}/>
 
 			<div className='container'>{renderMovies()}</div>
 		</>
