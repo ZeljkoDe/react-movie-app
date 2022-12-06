@@ -1,6 +1,13 @@
 .card {
+	display: flex;
+	flex-direction: column;
 }
 
 .card img {
-    width: 100%;
+	width: 100%;
+}
+
+.no-poste {
+	flex-grow: 1;
+	align-self: center;
 }
