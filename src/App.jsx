@@ -36,7 +36,9 @@ export default function App() {
 	};
 
 	const renderMovies = () =>
-		movies.map((movie) => <MovieCard key={movie.id} movie={movie} />);
+		movies.map((movie) => (
+			<MovieCard key={movie.id} movie={movie} selectMovie={setSelectedMovie} />
+		));
 
 	return (
 		<>
